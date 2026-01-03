@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket Pro - Professional Digital Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0F172A;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E5E7EB;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: #2DD4BF;
+            border-radius: 6px;
+            position: relative;
+        }
+        
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: #0F172A;
+            border-radius: 3px;
+        }
+        
+        .logo-text {
+            color: #0F172A;
+        }
+        
+        .logo-text .pocket {
+            font-weight: 400;
+        }
+        
+        .logo-text .pro {
+            color: #2DD4BF;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #0F172A;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #2DD4BF;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #2DD4BF;
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            opacity: 0.1;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #2DD4BF;
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #E5E7EB;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2.5rem;
+            background: #2DD4BF;
+            color: #0F172A;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: #14B8A6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(45, 212, 191, 0.3);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #0F172A;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #E5E7EB;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: #2DD4BF;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #2DD4BF;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #0F172A;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Why Section */
+        .why-section {
+            background: #E5E7EB;
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .why-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .why-item:hover {
+            border-color: #2DD4BF;
+        }
+        
+        .checkmark {
+            width: 50px;
+            height: 50px;
+            background: #2DD4BF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .why-item h3 {
+            font-size: 1.3rem;
+            color: #0F172A;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            border-color: #2DD4BF;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.featured {
+            border-color: #2DD4BF;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured h3,
+        .pricing-card.featured .pricing-price {
+            color: white;
+        }
+        
+        .pricing-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #2DD4BF;
+            color: #0F172A;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #0F172A;
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2DD4BF;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2DD4BF;
+            font-weight: 700;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: #0F172A;
+            color: white;
+        }
+        
+        .contact-section .section-title {
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            background: rgba(45, 212, 191, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid rgba(45, 212, 191, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            background: rgba(45, 212, 191, 0.2);
+            border-color: #2DD4BF;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2DD4BF;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-item a:hover {
+            color: #2DD4BF;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: #2DD4BF;
+            color: #0F172A;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .contact-button:hover {
+            background: #14B8A6;
+            transform: translateY(-2px);
+        }
+        
+        .contact-button.secondary {
+            background: transparent;
+            border: 2px solid #2DD4BF;
+            color: #2DD4BF;
+        }
+        
+        .contact-button.secondary:hover {
+            background: #2DD4BF;
+            color: #0F172A;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: #E5E7EB;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(45, 212, 191, 0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">
+                    <span class="pocket">Pocket</span><span class="pro">Pro</span>
+                </span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pocket Pro</h1>
+            <p class="hero-subtitle">Professional digital services at pocket-friendly prices</p>
+            <a href="https://wa.me/918248352724" class="cta-button" target="_blank">
+                <span>📱</span>
+                WhatsApp Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">What You Do</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Websites & Portfolios</h3>
+                <p>Custom-built, responsive websites that showcase your brand professionally</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Social Media Creatives & Posters</h3>
+                <p>Eye-catching designs that boost engagement and brand presence</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📄</div>
+                <h3>ATS Resume & Profile Optimization</h3>
+                <p>Get noticed by recruiters with ATS-friendly resumes and profiles</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Automation & AI Tools</h3>
+                <p>Streamline workflows and boost productivity with smart automation</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Image & Video Enhancements</h3>
+                <p>Professional editing that makes your content stand out</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section id="why" class="why-section">
+        <h2 class="section-title">Why Pocket Pro?</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="checkmark">✓</div>
+                <h3>Clear Pricing</h3>
+                <p>No hidden fees. You know exactly what you're paying for</p>
+            </div>
+            <div class="why-item">
+                <div class="checkmark">⚡</div>
+                <h3>Fast Delivery</h3>
+                <p>Quick turnaround times without compromising quality</p>
+            </div>
+            <div class="why-item">
+                <div class="checkmark">🚫</div>
+                <h3>No Unnecessary Upselling</h3>
+                <p>We recommend only what you actually need</p>
+            </div>
+            <div class="why-item">
+                <div class="checkmark">✨</div>
+                <h3>Clean, Professional Output</h3>
+                <p>Quality work that meets industry standards</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2 class="section-title">Pricing</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <span class="pricing-tag">Individuals</span>
+                <h3>Personal</h3>
+                <div class="pricing-price">₹999 – ₹1,999</div>
+                <ul class="pricing-features">
+                    <li>Perfect for freelancers</li>
+                    <li>Personal portfolios</li>
+                    <li>Resume optimization</li>
+                    <li>Social media posts</li>
+                    <li>Quick delivery</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-card featured">
+                <span class="pricing-tag">Most Popular</span>
+                <h3>Business</h3>
+                <div class="pricing-price">₹3,999 – ₹7,999</div>
+                <ul class="pricing-features">
+                    <li>Business websites</li>
+                    <li>Brand identity packages</li>
+                    <li>Marketing materials</li>
+                    <li>Automation setup</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-card">
+                <span class="pricing-tag">Enterprise</span>
+                <h3>Custom</h3>
+                <div class="pricing-price">₹10,000+</div>
+                <ul class="pricing-features">
+                    <li>Complex projects</li>
+                    <li>Full-scale solutions</li>
+                    <li>Ongoing support</li>
+                    <li>Custom integrations</li>
+                    <li>Dedicated assistance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/918248352724" target="_blank">+91 8248352724</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📸</div>
+                <h3>Instagram</h3>
+                <a href="https://www.instagram.com/pocketpro.26/?utm_source=ig_web_button_share_sheet" target="_blank">@pocketpro.26</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <a href="mailto:pocketpro2k26@gmail.com">pocketpro2k26@gmail.com</a>
+            </div>
+        </div>
+        
+        <div class="contact-buttons">
+            <a href="https://wa.me/918248352724" class="contact-button" target="_blank">
+                📱 WhatsApp Now
+            </a>
+            <a href="https://www.instagram.com/pocketpro.26/?utm_source=ig_web_button_share_sheet" class="contact-button secondary" target="_blank">
+                📸 Follow on Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Pocket Pro. Professional digital services at pocket-friendly prices.</p>
+    </footer>
+</body>
+</html>
